@@ -1,0 +1,33 @@
+﻿@model Practica.Models.UsuarioViewModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    @if (TempData.Count>0)
+    {
+        <script type="text/javascript">
+            alert(@TempData["Message"]);
+        </script>
+    }
+    @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+    {
+        <p>
+            @Html.LabelFor(m => m.Email)
+            @Html.TextBoxFor(m => m.Email, "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+        </p>
+        <p>
+            @Html.LabelFor(m => m.Password)
+            @Html.PasswordFor(m => m.Password)
+            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+        </p>
+        <div>
+            <input value="Iniciar sesión" class="btn btn-primary" type="submit" />
+        </div>
+
+    }
+    <br />
+    <a href="/AltaUsuarios" class="btn btn-primary">Darme de alta</a>
+</div>
+

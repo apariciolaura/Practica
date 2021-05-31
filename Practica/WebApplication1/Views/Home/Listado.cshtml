@@ -1,0 +1,28 @@
+﻿@model List<Practica.Models.UsuarioViewModel>
+@{
+    ViewBag.Title = "Listado";
+}
+
+<h2>Listado</h2>
+
+<div>
+    <table border="1">
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Email</th>
+        </tr>
+        @foreach (var usuario in Model)
+        {
+            <tr>
+                <td>@usuario.Id</td>
+                <td>@usuario.Nombre</td>
+                <td>@usuario.Email</td>
+            </tr>
+        }
+
+    </table>
+    <br />
+    <a href="/AltaUsuarios" class="btn btn-primary">Dar de alta a un usuario</a>
+    <a href="/Home/Index" class="btn btn-primary">Login</a>
+</div>
